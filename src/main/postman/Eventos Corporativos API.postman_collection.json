@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "4c5c751b-2da8-4e13-8d79-51fa67b823ff",
+		"name": "Eventos Corporativos API",
+		"description": "Flow to create a place, an event, assign places to the event, and register people for the event.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5370501"
+	},
+	"item": [
+		{
+			"name": "Create Lugar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Auditorio Principal 2\",\n    \"capacidad\": 10\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1.0/lugar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1.0",
+						"lugar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Conferencia Tech 2025\",\n    \"fecha\": \"2025-02-12T00:00:00.000Z\",\n    \"descripcion\": \"Evento de tecnología\",\n    \"estado\": true,\n    \"lugares\": [\n        \"e86fa451-4207-4816-a243-2410beaa32e1\",\n        \"ca57edd7-4a1a-47e6-a07c-1300e4dd2655\" \n    ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1.0/evento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1.0",
+						"evento"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lugares",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1.0/lugar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1.0",
+						"lugar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombres\": \"Juan\",\n    \"apellidos\": \"Pérez\",\n    \"fecha\": \"2024-06-05\",\n    \"eventoId\": \"1294f047-4dff-4cbc-bbe7-aaa8211c680d\"\n    \n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1.0/registro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1.0",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
